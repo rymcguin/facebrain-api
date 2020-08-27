@@ -13,10 +13,8 @@ const image = require("./controllers/image.js");
 const database = knex({
   client: "pg",
   connection: {
-    host: "postgresql-pointy-18955",
-    user: "mcguiness",
-    password: "",
-    database: "faceBrain",
+    host: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 
@@ -25,8 +23,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('it is working');
+app.get("/", (req, res) => {
+  res.send("it is working");
 });
 
 app.post("/signin", (req, res) => {
