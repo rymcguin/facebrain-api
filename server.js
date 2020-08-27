@@ -10,7 +10,6 @@ const signin = require("./controllers/signin.js");
 const profile = require("./controllers/profile.js");
 const image = require("./controllers/image.js");
 
-
 const database = knex({
   client: "pg",
   connection: {
@@ -23,10 +22,12 @@ const database = knex({
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
-app.get("/", (req, res) => {res.send('it is working')});
+app.get('/', (req, res) => {
+  res.send('it is working');
+});
 
 app.post("/signin", (req, res) => {
   signin.handleSignin(req, res, database, bcrypt);
@@ -49,5 +50,5 @@ app.post("/imageurl", (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("app is runnin on port ${process.env.PORT}");
+  console.log('app is running on port ${process.env.PORT}');
 });
