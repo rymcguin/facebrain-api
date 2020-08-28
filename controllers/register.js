@@ -29,4 +29,6 @@ const handleRegister = (req, res, database, bcrypt) => {
 	  .catch(err => res.status(400).json("account already exists"));
   }
 
-  export const handleRegister = handleRegister;
+  module.exports ={
+	  handleRegister: handleRegister
+  }

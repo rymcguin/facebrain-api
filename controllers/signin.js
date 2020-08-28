@@ -21,4 +21,6 @@ const handleSignin = (req, res, database, bcrypt) => {
 	.catch(err => res.status(400).json('Wrong email or password has been entered'))
   }
 
-  export const handleSignin = handleSignin;
+  module.exports ={
+	  handleSignin : handleSignin
+  }
