@@ -14,6 +14,4 @@ const handleProfile = (req, res, database) => {
 	  .catch((err) => res.status(400).json("error fetching user"));
   }
 
-  module.exports = {
-	  handleProfile : handleProfile
-  }
+  export const handleProfile = handleProfile;
